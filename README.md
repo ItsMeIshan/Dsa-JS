@@ -1,4 +1,4 @@
-# Dsa-JS
+# DSA-JS
 - [x] Assignment 1
 - [x] Assignment 2
 - [ ] Assignment 3
