@@ -1,23 +1,24 @@
-function selectionSort(arr, last, ind = 0){
-    if(last === 0){
+function selectionSort(arr, ind = 0){
+    if(ind == arr.length){
         return;
     }
-    let maxInd = maxi(arr, last);
-    console.log(maxInd, last);
-    // console.log(arr);
-    [arr[maxInd], arr[last]] = [arr[last], arr[maxInd]];
-    selectionSort(arr, last-1, ind);
+    let maxInd = maxi(arr, ind);
+    [arr[ind], arr[maxInd]] = [arr[maxInd], arr[ind]];
+    selectionSort(arr, ind+1);
 }
 
-function maxi(arr, end){
-    if(end == 1){
-        return arr[0];
+function maxi(arr, i){
+    if(i == arr.length){
+        return i-1;
     }
-    let res = Math.max(arr[end], maxi(arr, end -1))
+    if(arr[i] < arr[maxi(arr, i+1)]){
+        return i; 
+    }
+    else{
+        return maxi(arr, i+1);
+    }
 }
 let arr = [5,4,3,2,1];
-let searchSpace = arr.length-1;
-selectionSort(arr, searchSpace);
 console.log(arr);
-// let res = maxi(arr, searchSpace);
-// console.log(res);
+selectionSort(arr);
+console.log(arr);
